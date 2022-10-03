@@ -1,0 +1,17 @@
+export const Routes = {
+  HOME: "/",
+  DESTINATION: "/destination/:planet",
+  DESTINATION_MARS: "/destination/mars",
+  DESTINATION_MOON: "/destination/moon",
+  DESTINATION_TITAN: "/destination/titan",
+  DESTINATION_EUROPA: "/destination/europa",
+  CREW: "/crew/:role",
+  CREW_COMMANDER: "/crew/commander",
+  CREW_ENGINEER: "/crew/engineer",
+  CREW_PILOT: "/crew/pilot",
+  CREW_SPECIALIST: "/crew/specialist",
+  TECHNOLOGY: "/technology/:technology",
+  TECHNOLOGY_CAPSULE: "/technology/capsule",
+  TECHNOLOGY_SPACEPORT: "/technology/spaceport",
+  TECHNOLOGY_VEHICLE: "/technology/vehicle",
+};
