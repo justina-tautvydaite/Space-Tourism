@@ -1,8 +1,8 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import Home from "./Pages/Home";
-import Destination from "./Pages/Destination";
-import Crew from "./Pages/Crew";
-import Technology from "./Pages/Technology";
+import Home from "./pages/Home";
+import Destination from "./pages/Destination";
+import Crew from "./pages/Crew";
+import Technology from "./pages/Technology";
 import Nav from "./Nav";
 import GlobalStyle from "./globalStyles";
 import { MyBody } from "./Common.styles";
