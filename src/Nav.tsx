@@ -1,44 +1,140 @@
-import Logo from "./Assets/logo.svg";
+import Logo from "./assets/logo.svg";
+import Burger from "./assets/icon-hamburger.svg";
+import Close from "./assets/icon-close.svg";
 import {
   Navigation,
   NavLine,
   NavLinkWrapper,
+  NavLinkWrapperMobile,
   NavAllLinksWrapper,
+  ImgLogo,
+  ImgBurger,
+  ImgClose,
+  NavMobileMenu,
+  NavBoldText,
+  NavLink,
+  PushLine,
+  PushLineMobile,
+  NavLine2,
 } from "./Nav.styles";
-import { NavLink, PushLine } from "./Common.styles";
+import { useLocation } from "react-router-dom";
+import { Routes } from "./routes";
+import { useState } from "react";
 
 function Nav() {
+  const location = useLocation();
+  console.log(location.pathname);
+
+  const [menuOn, setMenuOn] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOn((prev) => !prev);
+  };
+
   return (
-    <Navigation>
-      <img src={Logo} alt="Logo" />
-      <NavLine />
-      <NavAllLinksWrapper>
-        <NavLinkWrapper>
-          <NavLink to="/Home">
-            <b>00</b> HOME
+    <div>
+      <Navigation>
+        <ImgLogo image={Logo} to={Routes.HOME} />
+
+        <NavLine2 />
+        <NavAllLinksWrapper>
+          <NavLine />
+          <NavLinkWrapper>
+            <NavLink to={Routes.HOME}>
+              <NavBoldText>00</NavBoldText> HOME
+            </NavLink>
+            <PushLine isActive={location.pathname === Routes.HOME} />
+          </NavLinkWrapper>
+          <NavLinkWrapper>
+            <NavLink to={Routes.DESTINATION_MOON}>
+              <NavBoldText>01</NavBoldText> DESTINATION
+            </NavLink>
+            <PushLine
+              isActive={
+                location.pathname === Routes.DESTINATION_MOON ||
+                location.pathname === Routes.DESTINATION_MARS ||
+                location.pathname === Routes.DESTINATION_TITAN ||
+                location.pathname === Routes.DESTINATION_EUROPA
+              }
+            />
+          </NavLinkWrapper>
+          <NavLinkWrapper>
+            <NavLink to={Routes.CREW_COMMANDER}>
+              <NavBoldText>02</NavBoldText> CREW
+            </NavLink>
+            <PushLine
+              isActive={
+                location.pathname === Routes.CREW_COMMANDER ||
+                location.pathname === Routes.CREW_ENGINEER ||
+                location.pathname === Routes.CREW_PILOT ||
+                location.pathname === Routes.CREW_SPECIALIST
+              }
+            />
+          </NavLinkWrapper>
+          <NavLinkWrapper>
+            <NavLink to={Routes.TECHNOLOGY_VEHICLE}>
+              <NavBoldText>03</NavBoldText> TECHNOLOGY
+            </NavLink>
+            <PushLine
+              isActive={
+                location.pathname === Routes.TECHNOLOGY_VEHICLE ||
+                location.pathname === Routes.TECHNOLOGY_CAPSULE ||
+                location.pathname === Routes.TECHNOLOGY_SPACEPORT
+              }
+            />
+          </NavLinkWrapper>
+        </NavAllLinksWrapper>
+
+        <ImgBurger src={Burger} onClick={toggleMenu} />
+      </Navigation>
+      <NavMobileMenu isMenuOn={menuOn}>
+        <ImgClose src={Close} onClick={toggleMenu} />
+        <NavLinkWrapperMobile>
+          <NavLink to={Routes.HOME} onClick={toggleMenu}>
+            <NavBoldText>00</NavBoldText> HOME
           </NavLink>
-          <PushLine />
-        </NavLinkWrapper>
-        <NavLinkWrapper>
-          <NavLink to="/Destination-Moon">
-            <b>01</b> DESTINATION
+          <PushLineMobile isActive={location.pathname === Routes.HOME} />
+        </NavLinkWrapperMobile>
+        <NavLinkWrapperMobile>
+          <NavLink to={Routes.DESTINATION_MOON} onClick={toggleMenu}>
+            <NavBoldText>01</NavBoldText> DESTINATION
           </NavLink>
-          <PushLine />
-        </NavLinkWrapper>
-        <NavLinkWrapper>
-          <NavLink to="/Crew-Commander">
-            <b>02</b> CREW
+          <PushLineMobile
+            isActive={
+              location.pathname === Routes.DESTINATION_MOON ||
+              location.pathname === Routes.DESTINATION_MARS ||
+              location.pathname === Routes.DESTINATION_TITAN ||
+              location.pathname === Routes.DESTINATION_EUROPA
+            }
+          />
+        </NavLinkWrapperMobile>
+        <NavLinkWrapperMobile>
+          <NavLink to={Routes.CREW_COMMANDER} onClick={toggleMenu}>
+            <NavBoldText>02</NavBoldText> CREW
           </NavLink>
-          <PushLine />
-        </NavLinkWrapper>
-        <NavLinkWrapper>
-          <NavLink to="/Technology-Launch-Vehicle">
-            <b>03</b> TECHNOLOGY
+          <PushLineMobile
+            isActive={
+              location.pathname === Routes.CREW_COMMANDER ||
+              location.pathname === Routes.CREW_ENGINEER ||
+              location.pathname === Routes.CREW_PILOT ||
+              location.pathname === Routes.CREW_SPECIALIST
+            }
+          />
+        </NavLinkWrapperMobile>
+        <NavLinkWrapperMobile>
+          <NavLink to={Routes.TECHNOLOGY_VEHICLE} onClick={toggleMenu}>
+            <NavBoldText>03</NavBoldText> TECHNOLOGY
           </NavLink>
-          <PushLine />
-        </NavLinkWrapper>
-      </NavAllLinksWrapper>
-    </Navigation>
+          <PushLineMobile
+            isActive={
+              location.pathname === Routes.TECHNOLOGY_VEHICLE ||
+              location.pathname === Routes.TECHNOLOGY_CAPSULE ||
+              location.pathname === Routes.TECHNOLOGY_SPACEPORT
+            }
+          />
+        </NavLinkWrapperMobile>
+      </NavMobileMenu>
+    </div>
   );
 }
 
