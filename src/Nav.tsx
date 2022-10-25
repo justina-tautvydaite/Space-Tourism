@@ -16,6 +16,7 @@ import {
   PushLine,
   PushLineMobile,
   NavLine2,
+  ImgLogoIn,
 } from "./Nav.styles";
 import { useLocation } from "react-router-dom";
 import { Routes } from "./routes";
@@ -34,7 +35,9 @@ function Nav() {
   return (
     <div>
       <Navigation>
-        <ImgLogo image={Logo} to={Routes.HOME} />
+        <ImgLogo to={Routes.HOME}>
+          <ImgLogoIn src={Logo} alt="Logo" />
+        </ImgLogo>
 
         <NavLine2 />
         <NavAllLinksWrapper>
@@ -85,10 +88,10 @@ function Nav() {
           </NavLinkWrapper>
         </NavAllLinksWrapper>
 
-        <ImgBurger src={Burger} onClick={toggleMenu} />
+        <ImgBurger src={Burger} onClick={toggleMenu} alt="burger" />
       </Navigation>
       <NavMobileMenu isMenuOn={menuOn}>
-        <ImgClose src={Close} onClick={toggleMenu} />
+        <ImgClose src={Close} onClick={toggleMenu} alt="close burger" />
         <NavLinkWrapperMobile>
           <NavLink to={Routes.HOME} onClick={toggleMenu}>
             <NavBoldText>00</NavBoldText> HOME
