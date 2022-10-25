@@ -17,12 +17,14 @@ function App() {
     <MyBody background={background}>
       <GlobalStyle />
       <Nav />
-      <Routes>
-        <Route path={AppRoutes.HOME} element={<Home />} />
-        <Route path={AppRoutes.DESTINATION} element={<Destination />} />
-        <Route path={AppRoutes.CREW} element={<Crew />} />
-        <Route path={AppRoutes.TECHNOLOGY} element={<Technology />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path={AppRoutes.HOME} element={<Home />} />
+          <Route path={AppRoutes.DESTINATION} element={<Destination />} />
+          <Route path={AppRoutes.CREW} element={<Crew />} />
+          <Route path={AppRoutes.TECHNOLOGY} element={<Technology />} />
+        </Routes>
+      </main>
     </MyBody>
   );
 }

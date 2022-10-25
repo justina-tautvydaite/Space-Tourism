@@ -70,17 +70,23 @@ export const NavLine2 = styled.div`
   }
 `;
 
-export const ImgLogo = styled(Link)<{ image: string }>`
-  background: url(${(props) => props.image});
+export const ImgLogo = styled(Link)`
+  min-width: 48px;
+
+  @media (max-width: 720px) {
+    min-width: 40px;
+  }
+`;
+
+export const ImgLogoIn = styled.img`
   min-width: 48px;
   height: 48px;
-  background-repeat: no-repeat;
-  background-size: contain;
   @media (max-width: 720px) {
     min-width: 40px;
     height: 40px;
   }
 `;
+
 export const ImgBurger = styled.img`
   width: 24px;
   height: 21px;
