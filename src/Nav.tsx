@@ -33,7 +33,7 @@ function Nav() {
   };
 
   return (
-    <div>
+    <nav>
       <Navigation>
         <ImgLogo to={Routes.HOME}>
           <ImgLogoIn src={Logo} alt="Logo" />
@@ -137,7 +137,7 @@ function Nav() {
           />
         </NavLinkWrapperMobile>
       </NavMobileMenu>
-    </div>
+    </nav>
   );
 }
 
